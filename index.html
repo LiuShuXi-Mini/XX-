@@ -1,0 +1,322 @@
+<html>
+    <head>
+        <title>大冒险！</title>
+        <style>
+            a{
+                text-decoration: none;
+                width: auto;
+            }
+            body{
+                background-color: black; /*背景*/
+                position: static;
+            }
+            .ground{
+                /*地面*/
+                background-color: white;/*白色*/
+                height: 20px;
+                top: 80%;
+                position: absolute;
+                width: 100%;
+                left: 0px;
+            }
+            .Player{
+                position: absolute;
+            }
+            .msgba{
+                /*虚化背景*/
+                opacity: 0.7;
+                background-color: white;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                display: block;
+                position: absolute;
+            }
+            .msgbo{
+                /*提示框*/
+                border-radius: 5px;
+                background-color: white;
+                width: 1000px;
+                height: 600px;
+                z-index: 4;
+                top: 0;
+                position: absolute;
+            }
+            .bt{
+                box-shadow: 0px 2px 5px black;
+                opacity: 0.7;
+                border-radius: 5000px;
+                padding: 10px;
+                margin-top: 10px;
+                width: auto;
+                border-style: none;
+                border-color: black;
+            }
+            .pa{
+                box-shadow: 0px 2px 5px black;
+                opacity: 0.8;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10x;
+                position: block;
+                position: absolute;
+                -webkit-animation: clsl 1s;
+                animation: clsl 1s;
+                background-image: url("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1072094357,24102086&fm=26&gp=0.jpg");
+                background-size: cover;
+                color: white;
+            }
+            .pa:hover{
+                box-shadow: 0px 4px 5px black;
+                opacity: 0.9;
+            }
+            .pa:focus{
+                box-shadow: 0px 5px 5px black;
+                opacity: 1;
+                animation: _bt_a 0.2s;
+                -webkit-animation: _bt_a 0.2s;
+            }
+            .p{
+                position: inline;
+            }
+            .nonemsg{
+                display: none;
+                background-color: red;
+                color: white;
+            }
+            .textbox:focus + .nonemsg{
+                display: inline;
+            }
+            .bt:hover{
+                box-shadow: 0px 4px 5px black;
+                border-style: solid;
+                border-width: 2px;
+            }
+            .bt.textbox:focus{
+                box-shadow: 0px 5px 5px black;
+                opacity: 1;
+                animation: _bt_a 0.2s;
+                -webkit-animation: _bt_a 0.2s;
+                border-style: solid;
+                border-width: 2px;
+            }
+            .bt:active{
+                box-shadow: 0px 5px 5px black;
+                opacity: 1;
+                animation: _bt_a 0.2s;
+                -webkit-animation: _bt_a 0.2s;
+                border-style: solid;
+                border-width: 2px;
+            }
+            @keyframes _bt_a {
+                from{
+                    opacity: 0.7;
+                    box-shadow: 0px 2px 5px black;
+
+                }
+                to{
+                    opacity: 1;
+                    box-shadow: 0px 5px 5px black;
+                }
+            }
+            @-webkit-keyframes _bt_a {
+                from{
+                    opacity: 0.7;
+                    box-shadow: 0px 2px 5px black;
+
+                }
+                to{
+                    opacity: 1;
+                    box-shadow: 0px 5px 5px black;
+                }
+            }
+            .bl{
+                background-color: blue;
+                color: white;
+            }
+            @keyframes clsl{
+                from{
+                    background-image: none;
+                    opacity: 0;
+                    background-color: black;
+                    color: black;
+                }
+                to{
+                    background-image: none;
+                    opacity: 1;
+                    background-color: white;
+                    color: black;
+                }
+            }
+            @-webkit-keyframes clsl{
+                from{
+                    opacity: 0;
+                    background-color: black;
+                    color: black;
+                }
+                to{
+                    opacity: 1;
+                    background-color: white;
+                    color: black;
+                }
+            }
+            #control{
+                left: 0;
+                top: 0;
+                background-image: none;
+                background-color: white;
+                opacity: 0.7;
+                display: none;
+                color: black;
+                z-index: 4;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="msgba" id="msgba"></div>
+        <div class="pa" id="control">
+            <a class="bt" id="top">^</a><br><br>
+            <a class="bt" id="left"><</a><a class="bt" id="right">></a>
+        </div>
+        <img src="" id="Player" class="Player">
+        <div class="ground" id="ground"></div>
+        <div class="msgbo pa" id="msgbo" style="text-align: center;">
+            <!--<h1>XX大冒险</h1>
+            <p>你要恶搞的人图片:<input type="text" value="C:\Users\26517\Desktop\Snipaste_2020-08-09_15-58-51.png" class="bt p textbox" id="eg"><a class="bt nonemsg">少侠暂仅可网络图片</a></p>
+            <!--<a class="bt bl" onclick='chatxt("");'></a>
+            <p>推荐：一起学名师<br><br><a class="bt bl" onclick='chatxt("http://static.17xueba.com/pro/server/image/2019/03/20190312110428151127.png");'>王绵华</a><a class="bt bl" onclick='chatxt("http://static.17xueba.com/pro/server/image/2019/03/20190311195036998738.png");'>陈嘉康</a><a class="bt bl" onclick='chatxt("http://static.17xueba.com/pro/server/image/2019/07/20190727174002897403.jpg");'>寇莹娟</a><a class="bt bl" onclick='chatxt("http://static.17xueba.com/pro/server/image/2019/03/20190311192625440830.png?x-oss-process=image/quality,q_80/resize,w_300");'>赵庆华</a><a class="bt bl" onclick='chatxt("http://static.17xueba.com/pro/server/image/2019/03/2019031119371491195.png?x-oss-process=image/quality,q_80/resize,w_300");'>孙中凯</a><a class="bt bl" onclick='chatxt("https://static.17xueba.com/pro/server/image/2019/03/201903131629050967.png?x-oss-process=image/quality,q_80/resize,w_300");'>张路洋</a><a class="bt bl" onclick='chatxt("https://static.17xueba.com/pro/server/image/2019/12/20191218165625154452.png?x-oss-process=image/quality,q_80/resize,w_300");'>李彤彤</a></p><br>
+            <a onclick="startpanelclose()" class="bt bl">本少侠马上去</a>&nbsp;&nbsp;&nbsp;<a onclick="startpanelclose()" href="about:blank" class="bt bl">本少侠不玩了</a><br>
+            <p>玩法：使用A、D、W控制角色,或者使用左上角面板</p>-->
+        </div>
+    </body>
+    <footer>
+        <script>
+            var Player = document.getElementById("Player");
+            var candown = true;
+            var Ground = document.getElementById("ground");
+            var timhwn1
+            var isjmp = false
+            var isleft = false
+            var isright = false
+            Player.style.display = "none"
+            Ground.style.display = "none"
+            document.getElementById("top").onmousedown = function(){isjmp = true}
+            document.getElementById("top").onmouseup = function(){isjmp = false}
+            document.getElementById("left").onmousedown = function(){isleft = true}
+            document.getElementById("left").onmouseup = function(){isleft = false}
+            document.getElementById("right").onmousedown = function(){isright = true}
+            document.getElementById("right").onmouseup = function(){isright = false}
+            document.getElementById("top").ontouchstart = function(){isjmp = true}
+            document.getElementById("top").ontouchend = function(){isjmp = false}
+            document.getElementById("left").ontouchstart = function(){isleft = true}
+            document.getElementById("left").ontouchend = function(){isleft = false}
+            document.getElementById("right").ontouchstart = function(){isright = true}
+            document.getElementById("right").ontouchend = function(){isright = false}
+            function chatxt(txt){
+                document.getElementById("eg").value = txt
+            }
+            //排序
+            function timer0() {
+                document.getElementById("msgbo").style.left = document.body.clientWidth / 2 - document.getElementById("msgbo").offsetWidth / 2;
+            }
+            //显示提示框
+            function newupmsg(html) {
+                document.getElementById("msgbo").innerHTML = html + '<br><br><a onclick = "closeupmsg()" class="bt bl">关闭</a>'
+                document.getElementById("msgbo").style.display = "block";
+                document.getElementById("msgba").style.display = "block";
+            }
+            function newupmsg_nb(html){
+                document.getElementById("msgbo").innerHTML = html
+                document.getElementById("msgbo").style.display = "block";
+                document.getElementById("msgba").style.display = "block";
+            }
+            //打开
+            function openupmsg() {
+                document.getElementById("msgbo").style.display = "block";
+                document.getElementById("msgba").style.display = "block";
+            }
+            //关闭提示框
+            function closeupsmg() {
+                document.getElementById("msgbo").style.display = "none";
+                document.getElementById("msgba").style.display = "none";
+            }
+            function startpanelclose() {
+                /*for (a = document.getElementById("msgbo").style.opacity;a < 1;a --){
+                    document.getElementById("msgbo").style.opacity = a
+                }*/
+                closeupsmg()
+                start()
+            }
+            function start() {
+                document.getElementById("control").style.display = "block"
+                Player.src = document.getElementById("eg").value
+                Player.style.display = "block"
+                Ground.style.display = "block"
+                timhwn1 = setInterval("timer1()", 8)
+            }
+            function timer1() {
+                if (candown == true) {
+                    Player.style.top = Player.offsetTop + 10 + "px";//模拟下降
+                }
+                if (Player.offsetTop >= Ground.offsetTop - Player.offsetHeight) {
+                    //陷入地面
+                    candown = false;
+                    Player.style.top = Ground.offsetTop - Player.offsetHeight;
+                }
+                else {
+                    candown = true
+                }
+                if (isjmp == true){
+                    candown = false
+                    Player.style.top = Player.offsetTop - 2 + "px"
+                }
+                else {
+                    candown = true
+                }
+                if (isleft == true){
+                    Player.style.left = Player.offsetLeft - 2 + "px"
+                }
+                if (isright == true){
+                    Player.style.left = Player.offsetLeft + 2 + "px"
+                }
+            }
+            document.onkeydown = function(e){
+                if (e.keyCode == 87){
+                    //W
+                    isjmp = true
+                }
+                else if (e.keyCode == 65){
+                    //A
+                    isleft = true
+                }
+                else if (e.keyCode == 68){
+                    //D
+                    isright = true
+                }
+            }
+            document.onkeyup = function(e){
+                if (e.keyCode == 87){
+                    //W
+                    isjmp = false
+                }
+                else if (e.keyCode == 65){
+                    //A
+                    isleft = false
+                }
+                else if (e.keyCode == 68){
+                    //D
+                    isright = false
+                }
+            }
+            function onclick1(){
+                newupmsg_nb("<h1>XX大冒险</h1><p>你要恶搞的人图片:<input type=\"text\" value=\"C:\Users\26517\Desktop\Snipaste_2020-08-09_15-58-51.png\" class=\"bt p textbox\" id=\"eg\"><a class=\"bt nonemsg\">少侠暂仅可网络图片</a></p><p>推荐：一起学名师<br><br><a class=\"bt bl\" onclick=\'chatxt(\"http://static.17xueba.com/pro/server/image/2019/03/20190312110428151127.png\");\'>王绵华</a><a class=\"bt bl\" onclick=\'chatxt(\"http://static.17xueba.com/pro/server/image/2019/03/20190311195036998738.png\");\'>陈嘉康</a><a class=\"bt bl\" onclick=\'chatxt(\"http://static.17xueba.com/pro/server/image/2019/07/20190727174002897403.jpg\");\'>寇莹娟</a><a class=\"bt bl\" onclick=\'chatxt(\"http://static.17xueba.com/pro/server/image/2019/03/20190311192625440830.png?x-oss-process=image/quality,q_80/resize,w_300\");\'>赵庆华</a><a class=\"bt bl\" onclick=\'chatxt(\"http://static.17xueba.com/pro/server/image/2019/03/2019031119371491195.png?x-oss-process=image/quality,q_80/resize,w_300\");\'>孙中凯</a><a class=\"bt bl\" onclick=\'chatxt(\"https://static.17xueba.com/pro/server/image/2019/03/201903131629050967.png?x-oss-process=image/quality,q_80/resize,w_300\");\'>张路洋</a><a class=\"bt bl\" onclick=\'chatxt(\"https://static.17xueba.com/pro/server/image/2019/12/20191218165625154452.png?x-oss-process=image/quality,q_80/resize,w_300\");\'>李彤彤</a></p><br><a onclick=\"startpanelclose()\" class=\"bt bl\">本少侠马上去</a>&nbsp;&nbsp;&nbsp;<a onclick=\"startpanelclose()\" href=\"about:blank\" class=\"bt bl\">本少侠不玩了</a><br><p>玩法：使用A、D、W控制角色,或者使用左上角面板</p>");
+            }
+            newupmsg_nb('Copyright(C)2019-2020.All right reserved.<br>健康游戏忠告<br>抵制不良游戏，拒绝盗版游戏。<br>注意自我保护，谨防受骗上当。<br>适度游戏益脑，沉迷游戏伤身。<br>合理安排时间，享受健康生活。<br><br><a onclick =\" onclick1()\"  class=\"bt bl\">进入游戏</a>')
+            timer0()
+            
+        </script>
+    </footer>
+</html>
